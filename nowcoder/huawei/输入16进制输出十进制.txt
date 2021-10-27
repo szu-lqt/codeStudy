@@ -1,0 +1,91 @@
+链接：https://www.nowcoder.com/questionTerminal/8f3df50d2b9043208c5eed283d1d4da6
+来源：牛客网
+
+//C语言版本：
+#include <stdio.h>
+int main(){
+    int a;
+    while (scanf("%x", &a) != EOF){
+        printf("%d\n", a);
+    }
+    return 0;
+}
+ 
+//方法二
+链接：https://www.nowcoder.com/questionTerminal/8f3df50d2b9043208c5eed283d1d4da6
+来源：牛客网
+
+// 从高位开始处理
+#include <stdio.h>
+#include <string.h>
+ 
+int main(void)
+{
+    char str[100] = {'\0'};
+     
+    while (gets(str)) {
+        int newNum = 0;
+        for (int i = 2; i < strlen(str); i++) {
+            newNum *= 16;
+            if (str[i] >= 'A' && str[i] <= 'F') {
+                newNum += (str[i] - 'A' + 10);
+            } else {
+                newNum += (str[i] - '0');
+            }
+        }
+        printf("%d\n", newNum);
+    }
+}
+
+//C++版本：
+#include <iostream>
+int main(){
+    int a;
+    while ((cin >> hex >> a)){
+        cout << a << endl;}   
+    }
+   return 0;
+}
+
+//方法二
+#include<isotream>
+#include <string.h>
+using namespace std;
+int main()
+{
+    char *sp=new char[10];
+    while(cin>>sp)
+    {
+        int n;
+        int num;int result=0;
+        n=strlen(sp);
+        for(int i=2;i<n;i++)
+        {
+            switch (sp[i])
+            {
+                case 'A':
+                    num=10;break;
+                case 'B':
+                    num=11;break;
+                case 'C':
+                    num=12;break;
+                case 'D':
+                    num=13;break;
+                case 'E':
+                    num=14;break;
+                case 'F':
+                    num=15;break;
+                default:
+                    if(sp[i]>='0'&&sp[i]<='9')
+                        num=sp[i]-'0';
+                    else
+                        return 0;
+            }
+            result=result*16+num;
+        }
+        cout<<result<<endl;
+        memset(sp,0,sizeof(sp));
+        result=0;
+    }
+    return 0;
+}
